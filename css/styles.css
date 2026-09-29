@@ -1,0 +1,243 @@
+html {
+  background: #061A3F;
+}
+
+body {
+  width: 82%;
+  max-width: 1100px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 3.5% 1rem;
+  background: #F1F2F1;
+  color: #061A3F;
+  font: 100% Verdana, Geneva, sans-serif;
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0.1rem;
+  color: #29398E;
+  font-size: 1.2rem;
+}
+
+header h2 {
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 4px solid #0BC0EF;
+  color: #061A3F;
+  font: 2.7rem Georgia, "Times New Roman", serif;
+}
+
+.lead {
+  margin-bottom: 1.2rem;
+  font-size: 1.08rem;
+}
+
+nav ul {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 1.2rem 0.35rem 0;
+}
+
+a {
+  color: #29398E;
+  text-decoration-color: #0086FF;
+}
+
+a:hover, a:focus {
+  color: #0086FF;
+}
+
+nav a[aria-current="page"] {
+  color: #061A3F;
+  font-weight: bold;
+  text-decoration-thickness: 3px;
+}
+
+section {
+  margin: 2.2rem 0 2.8rem;
+}
+
+/* Clear each floated image before the next subject begins. */
+section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+section h3 {
+  margin-bottom: 0.7rem;
+  color: #29398E;
+  font-size: 1.35rem;
+}
+
+/* The attribute selector reads the HTML data-topic value. Only h3 headings inside
+   sections labeled "action" get this color; changing a section's value changes
+   which heading matches without adding another CSS class. */
+section[data-topic="action"] h3 {
+  color: #0086FF;
+}
+
+.paragraph-detail {
+  margin-bottom: 1.1rem;
+}
+
+.paragraph-detail summary {
+  margin-bottom: 0.35rem;
+  color: #29398E;
+  font-weight: bold;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.paragraph-detail p {
+  margin-bottom: 0;
+}
+
+h4 {
+  margin-bottom: 0.25rem;
+  color: #29398E;
+  font-size: 1.05rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  margin-top: 0.35rem;
+  padding-left: 1.7rem;
+}
+
+li {
+  margin-bottom: 0.55rem;
+}
+
+figure {
+  width: 42%;
+  max-width: 430px;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+figure.diagram {
+  width: 48%;
+  max-width: 520px;
+}
+
+.flow-right {
+  float: right;
+  margin-left: 1.6rem;
+}
+
+.flow-left {
+  float: left;
+  margin-right: 1.6rem;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+mark {
+  /* Yellow makes the key phrases stand out in the reading text. */
+  background: #FFEB3B;
+  color: #061A3F;
+  font-weight: bold;
+  padding: 0 0.15rem;
+}
+
+kbd, code {
+  font-family: Consolas, monospace;
+  font-size: 0.93em;
+}
+
+kbd {
+  padding: 0.08rem 0.25rem;
+  border-bottom: 2px solid #29398E;
+  background: #F1F2F1;
+}
+
+button {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #29398E;
+  background: #F1F2F1;
+  color: #29398E;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  background: #0BC0EF;
+  color: #061A3F;
+}
+
+[popover] {
+  max-width: 340px;
+  padding: 1rem;
+  border: 2px solid #0086FF;
+  background: #F1F2F1;
+  color: #061A3F;
+}
+
+.example-line {
+  font-family: Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+.sources {
+  clear: both;
+  padding-top: 0.5rem;
+}
+
+footer {
+  clear: both;
+  margin-top: 2.5rem;
+  padding-top: 0.6rem;
+  border-top: 2px solid #0BC0EF;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  body {
+    width: auto;
+    padding: 1.2rem 5%;
+  }
+
+  header h2 {
+    font-size: 2rem;
+  }
+
+  nav li {
+    display: block;
+  }
+
+  figure, .flow-left, .flow-right {
+    float: none;
+    width: 100%;
+    max-width: none;
+    margin: 0.5rem 0 1rem;
+  }
+
+  figure.diagram {
+    width: 100%;
+    max-width: none;
+  }
+}

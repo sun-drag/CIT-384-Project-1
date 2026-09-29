@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A student guide to suspicious links, malware types, safer downloads, and VirusTotal checks.">
+    <title>Suspicious Links and Downloads | Cybersecurity Tips for Students</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header role="banner" id="top">
+      <h1>Cybersecurity Tips for Students</h1>
+      <h2>Suspicious links and downloads</h2>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Phishing</a></li>
+          <li><a href="mfa-sim-swapping.html">MFA and SIM swapping</a></li>
+          <li><a href="suspicious-downloads.html" aria-current="page">Suspicious links and downloads</a></li>
+          <li><a href="compromise-check.html">Check for compromise</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main role="main">
+      <article role="article">
+        <!-- data-topic is a custom data-* attribute that records a section's subject in HTML.
+             CSS uses section[data-topic="action"] h3 to select and color action headings.
+             JavaScript could use section.dataset.topic to read it or set it, and a selector
+             such as [data-topic="malware"] could find a particular subject. As another example,
+             data-file-type="pdf" could label a sample download; JavaScript would read
+             element.dataset.fileType (hyphenated names become camelCase). These values are public. -->
+        <section data-topic="links">
+          <h3>Read a link before following it</h3>
+          <figure class="flow-right diagram">
+            <img src="images/suspicious link.png" alt="Seven checks for a suspicious website, including its exact domain, source, unexpected requests, and browser warnings">
+            <figcaption>The image groups seven useful checks. No single check proves a site is safe.</figcaption>
+          </figure>
+          <!-- acronym's title gives the full meaning of HTTPS when the initials first appear.
+               The element is legacy HTML included for the assignment; abbr is usual in new work. -->
+          <!-- A summary must be the first child of details. Here it previews one full paragraph;
+               open displays the paragraph initially, and selecting the summary toggles it. -->
+          <details open class="paragraph-detail">
+            <summary>The exact domain, source, and requested action matter more than a familiar-looking link. HTTPS encrypts a connection but does not prove a site is legitimate.</summary>
+            <p>A link may appear in a class group chat, a search result, an email, or a document shared with you. Read the exact domain name before signing in or downloading anything. A familiar word somewhere in an address does not make it the real organization: <code>campus.example.com</code> and <code>campus-example.com</code> are different names. A padlock or <acronym title="Hypertext Transfer Protocol Secure">HTTPS</acronym> means the connection is encrypted; it does not prove the site owner is trustworthy. The image also reminds you to consider where the link came from and whether the site asks for a password, payment, or download you did not expect.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>Preview a destination when possible and use the official site or app for sensitive accounts. Treat browser warnings as a reason to stop.</summary>
+            <!-- mark calls attention to the central safety step. The yellow background comes
+                 from CSS, and strong makes the marked words important and bold. -->
+            <p>On a desktop, hover over a link to preview the destination, but remember that the displayed text and the actual destination can differ. For school, banking, or shopping accounts, <strong><mark>open the official site or app yourself</mark></strong> instead of trusting a message link. If a browser shows a security warning, treat it as a reason to stop and check. The <a href="https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams">FTC's phishing guide</a> recommends contacting an organization through a phone number or website you already know is real.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>A link label can hide a different destination. This disabled sample shows why the full address matters.</summary>
+            <p class="example-line">Illustrative mismatch: “campus portal” →
+            <!-- inert applies to the sample link and anything nested in its span. It prevents
+                 mouse interaction and keyboard focus, and assistive technology ignores it.
+                 The visible link is only an example of misleading link text. -->
+            <span inert><a href="https://example.com">unrelated.example.com</a></span>
+          </p>
+          </details>
+        </section>
+
+        <section data-topic="malware">
+          <h3>What a malicious download might contain</h3>
+          <figure class="flow-left diagram">
+            <img src="images/malware attacks.png" alt="Infographic listing ransomware, Trojan, worm, spyware, bloatware, virus, keylogger, logic bomb, and rootkit">
+            <figcaption>Different names describe how harmful or unwanted software behaves.</figcaption>
+          </figure>
+          <details open class="paragraph-detail">
+            <summary>Malware includes threats such as Trojans, worms, ransomware, spyware, and rootkits. Each can affect a device in a different way.</summary>
+            <p><strong>Malware</strong> is a broad term for harmful software. The image lists several forms. A <strong>Trojan</strong> pretends to be a useful file or program while carrying a harmful action. A <strong>virus</strong> attaches to other files and can spread when they run; a <strong>worm</strong> can spread across systems or networks. <strong>Ransomware</strong> may encrypt files and demand payment. <strong>Spyware</strong> quietly collects information, and a <strong>keylogger</strong> may record what you type. A <strong>rootkit</strong> tries to hide or maintain deep access. Some unwanted bundled software, often called <strong>bloatware</strong>, is annoying or resource-heavy without necessarily being malicious.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>A single file can combine threats, such as a Trojan installing spyware. Unexpected installers, archives, and misleading extensions deserve extra caution.</summary>
+            <p>These categories can overlap. A fake study tool might be a Trojan that installs spyware, while a malicious attachment might start a ransomware infection. Be especially careful with unexpected executable files, installers, compressed archives, browser extensions, and documents asking you to enable macros. A filename such as <code>lecture-notes.pdf.exe</code> is an executable program, not a PDF. The <a href="https://consumer.ftc.gov/articles/malware-how-protect-against-detect-and-remove-it">FTC's malware guide</a> recommends using security software and avoiding unfamiliar download sites.</p>
+          </details>
+        </section>
+
+        <section data-topic="downloads">
+          <h3>Make a safer decision before opening a file</h3>
+          <details open class="paragraph-detail">
+            <summary>Choose official sources and scan uncertain files before opening them. Confirm with a sender when an unexpected class file arrives.</summary>
+            <p>Start with the source. For software, use the developer's official site or a trusted app store; for a file from a classmate, ask whether they meant to send it if the message is unexpected. Keep your browser, operating system, and security software updated. On Windows, you can right-click a downloaded file, choose <strong>Show more options</strong> if that menu appears, and select <strong>Scan with Microsoft Defender</strong>. <a href="https://support.microsoft.com/en-us/windows/scan-an-item-with-windows-security-d1c8c01d-12ed-e768-cbb8-830ea8ccf8e6">Microsoft's file-scan instructions</a> describe the process.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>A clean scan does not guarantee safety. If the source or file type still seems wrong, leave it unopened and ask for help.</summary>
+            <p>A scan is one piece of evidence, not a guarantee. A new threat may not yet be recognized, and a file that passes a scan can still be inappropriate to run. If the source, file type, or request still looks wrong, do not open it. Ask campus IT when the file relates to a school account or device.</p>
+          </details>
+        </section>
+
+        <section data-topic="virustotal">
+          <h3>How VirusTotal helps and what it cannot prove</h3>
+          <figure class="flow-right">
+            <img src="images/virus total.png" alt="VirusTotal page showing File, URL, and Search tabs with an upload area">
+            <figcaption>VirusTotal can look up or analyze files and web addresses with multiple tools.</figcaption>
+          </figure>
+          <details open class="paragraph-detail">
+            <summary>VirusTotal checks public files and URLs using many scanners and can show existing reports. A zero-detection result is still not proof of safety.</summary>
+            <p>The screenshot shows VirusTotal's <strong>File</strong>, <acronym title="Uniform Resource Locator">URL</acronym>, and <strong>Search</strong> choices. <a href="https://www.virustotal.com/">VirusTotal</a> combines results from many antivirus engines and website scanners, so it can provide another clue about a public file or link. You can search an existing file report by its hash, or submit a nonsensitive file or public URL for analysis. Read the actual findings and comments rather than treating a single number as a final verdict. A result with no detections is <strong><mark>not proof that a file or site is safe</mark></strong>.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>Keep private documents, account information, and token-bearing links out of public scanning services. Reaching the real service yourself is often safer.</summary>
+            <p>Do not upload private coursework, personal documents, account data, or links containing private tokens. VirusTotal's <a href="https://docs.virustotal.com/docs/searching">search documentation</a> explains that submissions and queries contribute to its dataset and warns against submitting sensitive information. If a link came in an unexpected message, the simplest safe choice is usually to ignore it and reach the service independently, even if a scanner does not flag it.</p>
+          </details>
+          <!-- popover makes this reminder an initially hidden browser overlay.
+               The button's popovertarget value matches the overlay's id, allowing the button
+               to toggle it; the browser manages dismissal without custom JavaScript. -->
+          <button type="button" popovertarget="download-reminder">Show a quick reminder</button>
+          <div id="download-reminder" popover><div class="popover-text">Check the source, file type, and request. Scan if needed, then stop if anything still feels inconsistent.</div></div>
+        </section>
+
+        <section data-topic="action">
+          <h3>If you already opened the file</h3>
+          <details open class="paragraph-detail">
+            <summary>If a suspicious file was opened, stop sensitive sign-ins, update security software, and scan the device. Change exposed passwords from a trusted device.</summary>
+            <p>Stop entering passwords on the affected device, update your security software, and run a full scan. If a scanner finds malware, follow its removal instructions. From a trusted device, change passwords for accounts you used after the suspicious download and enable MFA. Contact campus IT for help with a school computer or account. The <a href="compromise-check.html">compromise-check page</a> explains other signs to review and how to inspect system activity.</p>
+          </details>
+        </section>
+
+        <section data-topic="sources" class="sources">
+          <h3>Sources and further reading</h3>
+          <p><a href="https://consumer.ftc.gov/articles/malware-how-protect-against-detect-and-remove-it">FTC malware guide</a>, <a href="https://support.microsoft.com/en-us/windows/scan-an-item-with-windows-security-d1c8c01d-12ed-e768-cbb8-830ea8ccf8e6">Microsoft file scanning</a>, and <a href="https://docs.virustotal.com/docs/how-it-works">VirusTotal: how it works</a>.</p>
+        </section>
+      </article>
+    </main>
+
+    <footer role="contentinfo"><p>Cybersecurity Tips for Students · <a href="#top">Back to top</a></p></footer>
+  </body>
+</html>

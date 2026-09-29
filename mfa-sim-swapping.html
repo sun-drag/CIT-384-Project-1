@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understand multi-factor authentication, the three factor categories, SIM swapping, and safer sign-in choices.">
+    <title>MFA and SIM Swapping | Cybersecurity Tips for Students</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header role="banner" id="top">
+      <h1>Cybersecurity Tips for Students</h1>
+      <h2>MFA and SIM swapping</h2>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Phishing</a></li>
+          <li><a href="mfa-sim-swapping.html" aria-current="page">MFA and SIM swapping</a></li>
+          <li><a href="suspicious-downloads.html">Suspicious links and downloads</a></li>
+          <li><a href="compromise-check.html">Check for compromise</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main role="main">
+      <article role="article">
+        <!-- data-topic is a custom data-* attribute used to label each section by subject.
+             The CSS selector section[data-topic="action"] h3 makes action headings blue.
+             A script could read a section's value as section.dataset.topic or select all action
+             sections with document.querySelectorAll('[data-topic="action"]'). Another possible
+             use is data-factor="possession" on an example, read as element.dataset.factor.
+             These are ordinary visible HTML values, so they should not contain secrets. -->
+        <section data-topic="introduction">
+          <h3>What multi-factor authentication actually does</h3>
+          <figure class="flow-right">
+            <img src="images/MFA.png" alt="Diagram showing a password plus a second verification step leading to account access">
+            <figcaption>A password and a separate verification step make account takeover harder.</figcaption>
+          </figure>
+          <!-- acronym spells out MFA through its title attribute, helping a reader understand
+               the initials on first use. It is a legacy element used here for the assignment;
+               newer projects generally use abbr for abbreviations. -->
+          <!-- Each summary is the first child of its details element and previews the one
+               paragraph below it. open displays that paragraph by default, and the reader
+               can select the summary to collapse or reopen it without JavaScript. -->
+          <details open class="paragraph-detail">
+            <summary>MFA adds another kind of identity proof so a stolen password alone is less useful. Enable it on important school and personal accounts.</summary>
+            <p><acronym title="Multi-Factor Authentication">MFA</acronym> requires more than one kind of proof that you are the person signing in. If a criminal learns your password from a phishing message or a data breach, the additional step can stop that password from being enough. A school account is especially valuable because it can contain email, coursework, contact details, and password-reset messages for other services. <a href="https://www.cisa.gov/ncas/tips/st05-012">CISA's MFA explanation</a> recommends turning it on wherever an account offers it.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>Authenticator apps, security keys, device prompts, and text codes are common methods. Reject any prompt you did not start and keep codes private.</summary>
+            <!-- mark highlights the key warning as relevant text. CSS makes it yellow, while
+                 strong gives the warning importance and bold styling. -->
+            <p>Common second steps include a code from an authenticator app, a security key, or a prompt on a registered device. Text-message codes are also MFA, but they depend on control of your phone number. <strong><mark>Never approve an MFA prompt you did not initiate</mark></strong>, and never tell a caller your one-time code. An unexpected prompt can mean someone already knows your password and is trying to complete the login.</p>
+          </details>
+        </section>
+
+        <section data-topic="factors">
+          <h3>The full MFA triad</h3>
+          <figure class="flow-left diagram">
+            <img src="images/full MFA.png" alt="Three authentication factor categories: something you know, have, and are">
+            <figcaption>The three categories describe different kinds of identity proof.</figcaption>
+          </figure>
+          <details open class="paragraph-detail">
+            <summary>The MFA triad is something you know, something you have, and something you are. Multi-factor sign-in combines at least two different categories.</summary>
+            <p><strong>Something you know</strong> is information in your memory, such as a password or <acronym title="Personal Identification Number">PIN</acronym>. <strong>Something you have</strong> is a possession, such as a security key or a registered phone running an authenticator app. <strong>Something you are</strong> is a biometric trait, such as a fingerprint or face scan. These are categories of factors, not three steps everyone must complete. A sign-in is multi-factor when it combines at least two different categories. Two passwords are still both “something you know.” <a href="https://consumer.ftc.gov/articles/use-two-factor-authentication-protect-your-accounts">The FTC's two-factor guide</a> explains these choices.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>A password plus an authenticator code is one example of two factors. Prefer stronger methods when available and store recovery codes privately.</summary>
+            <p>For example, a password followed by an authenticator-app code combines something you know with something you have. A passkey protected by your device's fingerprint or PIN can also combine factors. The choice depends on what the service supports. A security key or passkey is especially strong against fake login pages because it is tied to the real site; an app code is a good choice when that is unavailable. Keep your recovery codes in a private place before you lose access to your phone.</p>
+          </details>
+        </section>
+
+        <section data-topic="risk">
+          <h3>How SIM swapping threatens text codes</h3>
+          <figure class="flow-right diagram">
+            <img src="images/sim swaping.png" alt="Four-step diagram showing an attacker gathering data, impersonating a customer, moving the phone number to another SIM, and receiving texts">
+            <figcaption>A SIM swap transfers a victim's phone number to a device controlled by the attacker.</figcaption>
+          </figure>
+          <details open class="paragraph-detail">
+            <summary>A SIM swap moves a phone number to an attacker-controlled SIM or eSIM. This can let the attacker receive texted login codes.</summary>
+            <p>The illustration shows the basic chain: an attacker collects details about a victim, contacts the cellular carrier while pretending to be that person, and persuades the carrier to move the number to a different SIM or eSIM. Once the attacker receives the victim's calls and texts, they may be able to receive <acronym title="Short Message Service">SMS</acronym> login codes. A password plus a text code is still useful protection against many attacks, but a SIM swap can defeat the text-code part. The <a href="https://consumer.ftc.gov/consumer-alerts/2019/10/sim-swap-scams-how-protect-yourself">FTC's SIM swap advice</a> explains this risk.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>An unexpected loss of mobile service may signal a SIM swap, although outages also happen. Contact the carrier through its official channel to check.</summary>
+            <p>A sudden loss of calls, texts, and mobile data may be a warning, particularly if the carrier also reports a SIM change you did not request. Loss of service can have ordinary causes too, so contact the carrier using its official number or app and ask what happened. The attacker may already be trying to reset email, banking, or social-media accounts while the phone number is unavailable.</p>
+          </details>
+        </section>
+
+        <section data-topic="action">
+          <h3>Choose stronger methods and prepare a recovery plan</h3>
+          <details open class="paragraph-detail">
+            <summary>Add a carrier PIN or transfer lock and choose a security key or authenticator app for important accounts. Unique passwords and sign-in alerts add protection.</summary>
+            <p><strong><mark>Protect the carrier account as well as the online accounts.</mark></strong> Ask your carrier about an account PIN or transfer lock, and keep the PIN private. For important services, prefer a security key or authenticator app to text messages when possible. Use a long, unique password for each account, and turn on sign-in alerts so a new login is easier to notice. These steps reduce risk, though no single one guarantees that a carrier or an account cannot be tricked.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>If you suspect a SIM swap, recover the number quickly, then secure accounts from a trusted device. Check banking, school, and social accounts for unauthorized activity.</summary>
+            <p>If you suspect a SIM swap, call the carrier immediately to recover your number. Then use a trusted device to change passwords, check recent sign-ins, and review financial and school accounts for unauthorized activity. Tell campus IT if your school account may be involved. Save backup codes ahead of time so you can regain access without relying on the same phone number.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>An unexpected sign-in approval is a warning. The sample approval button is disabled for safety.</summary>
+            <p>Example of an unsafe approval request:
+            <!-- inert makes the example button and its descendants unable to receive focus
+                 or clicks. It also removes them from assistive technology's interaction tree;
+                 the example is shown visually but cannot approve a real sign-in. -->
+            <span inert><button type="button">Approve sign-in I did not start</button></span>
+          </p>
+          </details>
+          <!-- popover creates an initially hidden reminder that the browser can show as an overlay.
+               popovertarget on the button points to the reminder's id, so clicking it toggles
+               the reminder and the browser handles dismissal without custom JavaScript. -->
+          <button type="button" popovertarget="mfa-reminder">Show a quick reminder</button>
+          <div id="mfa-reminder" popover><div class="popover-text">Use the strongest MFA method your account offers, protect your carrier account, and save recovery codes privately.</div></div>
+        </section>
+
+        <section data-topic="sources" class="sources">
+          <h3>Sources and further reading</h3>
+          <p><a href="https://www.cisa.gov/ncas/tips/st05-012">CISA: More than a Password</a>, <a href="https://consumer.ftc.gov/articles/use-two-factor-authentication-protect-your-accounts">FTC: two-factor authentication</a>, and <a href="https://consumer.ftc.gov/consumer-alerts/2019/10/sim-swap-scams-how-protect-yourself">FTC: SIM swap scams</a>.</p>
+        </section>
+      </article>
+    </main>
+
+    <footer role="contentinfo"><p>Cybersecurity Tips for Students · <a href="#top">Back to top</a></p></footer>
+  </body>
+</html>

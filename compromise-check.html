@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How students can check a device and accounts for signs of compromise, including Task Manager and Have I Been Pwned.">
+    <title>Check for Compromise | Cybersecurity Tips for Students</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header role="banner" id="top">
+      <h1>Cybersecurity Tips for Students</h1>
+      <h2>How to check for compromise</h2>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Phishing</a></li>
+          <li><a href="mfa-sim-swapping.html">MFA and SIM swapping</a></li>
+          <li><a href="suspicious-downloads.html">Suspicious links and downloads</a></li>
+          <li><a href="compromise-check.html" aria-current="page">Check for compromise</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main role="main">
+      <article role="article">
+        <!-- data-topic is a custom data-* attribute that labels the purpose of each section.
+             CSS reads it with section[data-topic="action"] h3 to color action headings blue.
+             JavaScript could read section.dataset.topic or select a section with
+             document.querySelector('[data-topic="processes"]'). A different page might use
+             data-check-status="reviewed" and read element.dataset.checkStatus; this is an
+             example only, not a status-tracking feature here. data-* values are public HTML. -->
+        <section data-topic="signs">
+          <h3>Start with signs, not a guess</h3>
+          <figure class="flow-right">
+            <img src="images/check if compromised.png" alt="Infographic showing six possible signs: slow performance, unknown programs, password changes, unusual activity, antivirus warnings, and disabled protection">
+            <figcaption>These six signs are reasons to investigate, not a diagnosis by themselves.</figcaption>
+          </figure>
+          <!-- Each details element holds one full paragraph. Its first child, summary, gives a
+               short preview; open makes the paragraph visible when the page loads. Selecting
+               the summary collapses or expands it using the browser's built-in behavior. -->
+          <details open class="paragraph-detail">
+            <summary>Slowdowns, unknown software, account changes, and disabled protection can be warning signs. Consider several clues together.</summary>
+            <p>A compromised device or account may behave differently from normal. The image lists six clues: sudden slowdowns, unfamiliar programs or pop-ups, password changes you did not make, unusual account activity, unexpected antivirus warnings, and security software that has been disabled. You might also notice browser redirects, messages you never sent, or a new sign-in alert. The <a href="https://consumer.ftc.gov/articles/malware-how-protect-against-detect-and-remove-it">FTC's malware guide</a> lists similar symptoms and recommends a security scan when they appear.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>A single symptom may have an ordinary cause, including updates or many open tabs. Note what changed before assuming a device is infected.</summary>
+            <p>No one sign proves that a hacker is present. A computer may be slow because it is updating, low on storage, or running many browser tabs. A fake “virus detected” pop-up can itself be a scam. Look for a pattern and ask what changed recently: Did you install a program, open an attachment, or approve a login you did not start? Keeping track of those details makes the next check more useful.</p>
+          </details>
+        </section>
+
+        <section data-topic="processes">
+          <h3>Inspect CPU and running processes</h3>
+          <figure class="flow-left diagram">
+            <img src="images/compromised task manaher.png" alt="Windows Task Manager Processes tab with one process using about 61 percent of the CPU">
+            <figcaption>The screenshot highlights high CPU use by one process. It does not identify the cause.</figcaption>
+          </figure>
+          <!-- kbd identifies input a person should type or keys to press. Each key in a
+               shortcut has its own kbd element; the plus signs show that keys are held
+               together. acronym gives the full words for CPU through title; it is a
+               legacy assignment element, while abbr is usual in new projects. -->
+          <details open class="paragraph-detail">
+            <summary>Windows Task Manager, Mac Activity Monitor, and Linux process tools show resource use. Sort by CPU and compare processes with what you intentionally opened.</summary>
+            <p>On <strong>Windows</strong>, press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd> to open Task Manager. In the <strong>Processes</strong> view, select the <acronym title="Central Processing Unit">CPU</acronym> column to sort by usage; you can also inspect memory and disk activity. On a <strong>Mac</strong>, press <kbd>Command</kbd> + <kbd>Space</kbd>, type <kbd>Activity Monitor</kbd>, and press <kbd>Return</kbd>; then open its CPU view. On a <strong>GNOME-based Linux</strong> desktop, press <kbd>Super</kbd>, search for <kbd>System Monitor</kbd>, and inspect the process list. Another Linux option is to open a terminal, type <kbd>top</kbd>, and press <kbd>Return</kbd>. The exact app and launcher can vary by distribution.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>A hidden cryptocurrency miner can sustain high CPU use, but legitimate apps can do the same. The Task Manager screenshot is a clue, not a diagnosis.</summary>
+            <p>The screenshot shows a process consuming around 61% of the CPU. A hidden cryptocurrency miner could use a computer's processing power to make money for an attacker; this is called <strong>cryptojacking</strong>. People sometimes call it a “Bitcoin miner,” although the software may mine another cryptocurrency. It is one possible explanation for sustained high CPU use, but it is far from the only one. A game, video call, browser tab, update, or legitimate security scan can also be demanding. <a href="https://www.microsoft.com/en-us/microsoft-365-life-hacks/?p=8912">Microsoft's cryptojacking explanation</a> describes the threat, while its <a href="https://support.microsoft.com/en-us/windows/experience/system-configuration-tools-in-windows">Task Manager guide</a> explains the resource view.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>Watch whether usage drops after closing familiar applications. Record unfamiliar process names and ask for help before ending system services.</summary>
+            <!-- mark highlights the main caution in the paragraph; CSS supplies a yellow
+                 background, and strong adds importance and bold text. -->
+            <p>Close programs you recognize and wait a little to see whether the load drops. If an unfamiliar process remains busy, note its exact name and seek help before ending or deleting it. Some unfamiliar names belong to important system services. <strong><mark>High usage is a clue to investigate, not proof of infection.</mark></strong></p>
+          </details>
+        </section>
+
+        <section data-topic="breach">
+          <h3>Check whether an account appeared in a known breach</h3>
+          <figure class="flow-right diagram">
+            <img src="images/pwned.png" alt="Example Have I Been Pwned result showing a breached email address and affected services">
+            <figcaption>This example shows how a breach lookup can list affected services and exposed data.</figcaption>
+          </figure>
+          <details open class="paragraph-detail">
+            <summary>Have I Been Pwned can show whether an email address appeared in known breaches. Review the affected service and change reused passwords.</summary>
+            <p><a href="https://haveibeenpwned.com/">Have I Been Pwned</a> lets you search an email address for appearances in known data breaches. If the address appears, read which service was affected and what kinds of data were exposed. Change a password used on that service, and change it anywhere else you reused it. Turn on MFA for the affected account and review recent sign-ins. The site's <a href="https://haveibeenpwned.com/FAQs">FAQ</a> explains that it aggregates breach data and what a “pwned” result means.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>A breach result does not establish that the current device is infected, and no result is not a safety guarantee. Combine the lookup with other checks.</summary>
+            <p>A listed breach does <em>not</em> prove that your current computer is infected, and a “no breach found” result does <em>not</em> prove that every account is safe. The lookup only covers breaches known to the service. Use it alongside your account's own security history, not as a replacement for checking the device. Search only an address you are authorized to check; you do not need to enter an account password into the email lookup.</p>
+          </details>
+        </section>
+
+        <section data-topic="action">
+          <h3>What to do if the signs add up</h3>
+          <details open class="paragraph-detail">
+            <summary>Stop sensitive sign-ins on a possibly affected device and run an updated security scan. Ask campus IT before major changes to a managed school device.</summary>
+            <p><strong><mark>Stop using the possibly affected device for sensitive sign-ins</mark></strong> until you have checked it. Update your security software and run a full malware scan. On Windows, open <strong>Windows Security</strong>, choose <strong>Virus &amp; threat protection</strong>, and use <strong>Scan options</strong> for a full scan. Follow the tool's instructions if it finds a threat. If your school manages the device, contact campus IT before making major changes.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>Secure exposed accounts from a trusted device and review sign-ins, sessions, and financial activity. Keep a clean backup and seek help if removal is uncertain.</summary>
+            <p>From a different trusted device, change passwords for accounts you think may be exposed, enable MFA, review recent sign-ins, and sign out of other sessions where possible. Tell the school help desk if a campus account is affected. If a financial account shows changes you did not make, contact the institution through its official app or number. Keep a clean backup of important coursework, and ask for help before restoring files if you are unsure what was infected. The <a href="https://consumer.ftc.gov/articles/malware-how-protect-against-detect-and-remove-it">FTC's removal guidance</a> provides a useful starting sequence.</p>
+          </details>
+          <details open class="paragraph-detail">
+            <summary>A cleanup pop-up can be another scam. This sample download link is disabled.</summary>
+            <p>Do not trust a pop-up offering an instant “miracle cleaner”:
+            <!-- inert makes this pretend download link non-interactive, removes it from
+                 keyboard focus, and causes assistive technology to ignore it. It stays
+                 visible as an example of a suspicious cleanup offer. -->
+            <span inert><a href="https://example.com">download the cleaner now</a></span>.
+          </p>
+          </details>
+          <!-- popover makes the reminder an initially hidden browser-managed overlay.
+               The button's popovertarget matches the overlay's id to toggle it, and the
+               browser handles closing it without custom JavaScript. -->
+          <button type="button" popovertarget="compromise-reminder">Show a quick reminder</button>
+          <div id="compromise-reminder" popover><div class="popover-text">Check the pattern, scan the device, secure accounts from a trusted device, and ask campus IT for help.</div></div>
+        </section>
+
+        <section data-topic="sources" class="sources">
+          <h3>Sources and further reading</h3>
+          <p><a href="https://consumer.ftc.gov/articles/malware-how-protect-against-detect-and-remove-it">FTC malware guide</a>, <a href="https://support.microsoft.com/en-us/windows/experience/system-configuration-tools-in-windows">Microsoft Task Manager guide</a>, <a href="https://support.apple.com/en-ca/guide/activity-monitor/actmntr43452/mac">Apple Activity Monitor guide</a>, <a href="https://help.gnome.org/gnome-system-monitor/">GNOME System Monitor guide</a>, and <a href="https://haveibeenpwned.com/FAQs">Have I Been Pwned FAQ</a>.</p>
+        </section>
+      </article>
+    </main>
+
+    <footer role="contentinfo"><p>Cybersecurity Tips for Students · <a href="#top">Back to top</a></p></footer>
+  </body>
+</html>
