@@ -18,12 +18,16 @@ h1, h2, h3, h4, p {
   margin-top: 0;
 }
 
+/* Applies to every h2 heading inside any section.
+   This is the default style for section headings. */
 h1 {
   margin-bottom: 0.1rem;
   color: #29398E;
   font-size: 1.2rem;
 }
 
+/* Applies to every h2 heading inside any section.
+   This is the default style for section headings. */
 header h2 {
   margin-bottom: 0.6rem;
   padding-bottom: 0.35rem;
@@ -37,32 +41,38 @@ header h2 {
   font-size: 1.08rem;
 }
 
+/* Removes normal list styling and spacing from the navigation list. */
 nav ul {
   margin: 0 0 1.5rem;
   padding: 0;
   list-style: none;
 }
 
+/* Displays navigation items next to each other. */
 nav li {
   display: inline-block;
   margin: 0 1.2rem 0.35rem 0;
 }
 
+/* Sets the normal color and underline color for links. */
 a {
   color: #29398E;
   text-decoration-color: #0086FF;
 }
 
+/* Changes the link color when hovered over */
 a:hover, a:focus {
   color: #0086FF;
 }
 
+/* Highlights the navigation link for the current page. */
 nav a[aria-current="page"] {
   color: #061A3F;
   font-weight: bold;
   text-decoration-thickness: 3px;
 }
 
+/* Adds vertical spacing between page sections. */
 section {
   margin: 2.2rem 0 2.8rem;
 }
@@ -74,23 +84,26 @@ section::after {
   clear: both;
 }
 
+/* Applies to every h3 heading inside any section.
+   This is the default style for section headings. */
 section h3 {
   margin-bottom: 0.7rem;
   color: #29398E;
   font-size: 1.35rem;
 }
 
-/* The attribute selector reads the HTML data-topic value. Only h3 headings inside
-   sections labeled "action" get this color; changing a section's value changes
-   which heading matches without adding another CSS class. */
+/* Applies only to h3 headings inside a section with data-topic="action".
+   This rule overrides the default blue color above and changes it to #0086FF. */
 section[data-topic="action"] h3 {
   color: #0086FF;
 }
 
+/* Adds spacing below each expandable details section. */
 .paragraph-detail {
   margin-bottom: 1.1rem;
 }
 
+/* Styles the clickable summary heading inside a details element. */
 .paragraph-detail summary {
   margin-bottom: 0.35rem;
   color: #29398E;
@@ -99,9 +112,13 @@ section[data-topic="action"] h3 {
   cursor: pointer;
 }
 
+/* Removes extra spacing below paragraphs inside the details section. */
 .paragraph-detail p {
   margin-bottom: 0;
 }
+
+/* Applies to every h4 heading inside any section.
+   This is the default style for section headings. */
 
 h4 {
   margin-bottom: 0.25rem;
@@ -113,15 +130,18 @@ p {
   margin-bottom: 1rem;
 }
 
+/* Controls spacing and indentation for ordered and unordered lists. */
 ul, ol {
   margin-top: 0.35rem;
   padding-left: 1.7rem;
 }
 
+/* Adds spacing between individual list items. */
 li {
   margin-bottom: 0.55rem;
 }
 
+/* Sets the default size and spacing for figures. */
 figure {
   width: 42%;
   max-width: 430px;
@@ -134,11 +154,13 @@ figure.diagram {
   max-width: 520px;
 }
 
+/* Floats an element to the right so text can wrap around it. */
 .flow-right {
   float: right;
   margin-left: 1.6rem;
 }
 
+/* Floats an element to the left so text can wrap around it. */
 .flow-left {
   float: left;
   margin-right: 1.6rem;
@@ -150,31 +172,35 @@ figure img {
   height: auto;
 }
 
+/* Styles the caption located below an image. */
 figcaption {
   margin-top: 0.35rem;
   font-size: 0.82rem;
   line-height: 1.4;
 }
 
+ /* Gives mark the color yellow */
 mark {
-  /* Yellow makes the key phrases stand out in the reading text. */
   background: #FFEB3B;
   color: #061A3F;
   font-weight: bold;
   padding: 0 0.15rem;
 }
 
+/* Gives keyboard commands and code a monospace font. */
 kbd, code {
   font-family: Consolas, monospace;
   font-size: 0.93em;
 }
 
+/* Styles keyboard input examples to look like keyboard keys. */
 kbd {
   padding: 0.08rem 0.25rem;
   border-bottom: 2px solid #29398E;
   background: #F1F2F1;
 }
 
+/* The appearance buttons. */
 button {
   padding: 0.4rem 0.7rem;
   border: 1px solid #29398E;
@@ -184,11 +210,13 @@ button {
   cursor: pointer;
 }
 
+/* Changes button colors when hovered over or selected with the keyboard. */
 button:hover, button:focus {
   background: #0BC0EF;
   color: #061A3F;
 }
 
+/* Styles elements that use the popover attribute. */
 [popover] {
   max-width: 340px;
   padding: 1rem;
@@ -213,31 +241,4 @@ footer {
   padding-top: 0.6rem;
   border-top: 2px solid #0BC0EF;
   font-size: 0.85rem;
-}
-
-@media (max-width: 720px) {
-  body {
-    width: auto;
-    padding: 1.2rem 5%;
-  }
-
-  header h2 {
-    font-size: 2rem;
-  }
-
-  nav li {
-    display: block;
-  }
-
-  figure, .flow-left, .flow-right {
-    float: none;
-    width: 100%;
-    max-width: none;
-    margin: 0.5rem 0 1rem;
-  }
-
-  figure.diagram {
-    width: 100%;
-    max-width: none;
-  }
 }
