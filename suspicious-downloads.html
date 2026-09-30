@@ -23,20 +23,16 @@
 
     <main role="main">
       <article role="article">
-        <!-- data-topic is a custom data-* attribute that records a section's subject in HTML.
-             CSS uses section[data-topic="action"] h3 to select and color action headings.
-             JavaScript could use section.dataset.topic to read it or set it, and a selector
-             such as [data-topic="malware"] could find a particular subject. As another example,
-             data-file-type="pdf" could label a sample download; JavaScript would read
-             element.dataset.fileType (hyphenated names become camelCase). These values are public. -->
+        <!-- data-* attributes store custom information in HTML.
+     They can be used by CSS for styling, JavaScript for behavior,
+     filtering or sorting content, and identifying different types of elements.  -->
         <section data-topic="links">
           <h3>Read a link before following it</h3>
           <figure class="flow-right diagram">
             <img src="images/suspicious link.png" alt="Seven checks for a suspicious website, including its exact domain, source, unexpected requests, and browser warnings">
             <figcaption>The image groups seven useful checks. No single check proves a site is safe.</figcaption>
           </figure>
-          <!-- acronym's title gives the full meaning of HTTPS when the initials first appear.
-               The element is legacy HTML included for the assignment; abbr is usual in new work. -->
+          <!-- acronym clearly indicate a sequence of characters that compose an acronym  -->
           <!-- A summary must be the first child of details. Here it previews one full paragraph;
                open displays the paragraph initially, and selecting the summary toggles it. -->
           <details open class="paragraph-detail">
@@ -45,16 +41,14 @@
           </details>
           <details open class="paragraph-detail">
             <summary>Preview a destination when possible and use the official site or app for sensitive accounts. Treat browser warnings as a reason to stop.</summary>
-            <!-- mark calls attention to the central safety step. The yellow background comes
-                 from CSS, and strong makes the marked words important and bold. -->
+            <!-- mark identifies text relevant enough to highlight in context. CSS paints it yellow -->
             <p>On a desktop, hover over a link to preview the destination, but remember that the displayed text and the actual destination can differ. For school, banking, or shopping accounts, <strong><mark>open the official site or app yourself</mark></strong> instead of trusting a message link. If a browser shows a security warning, treat it as a reason to stop and check. The <a href="https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams">FTC's phishing guide</a> recommends contacting an organization through a phone number or website you already know is real.</p>
           </details>
           <details open class="paragraph-detail">
             <summary>A link label can hide a different destination. This disabled sample shows why the full address matters.</summary>
             <p class="example-line">Illustrative mismatch: “campus portal” →
-            <!-- inert applies to the sample link and anything nested in its span. It prevents
-                 mouse interaction and keyboard focus, and assistive technology ignores it.
-                 The visible link is only an example of misleading link text. -->
+             <!-- inert makes this illustrative link and its descendants non-interactive: it cannot
+                 be clicked -->
             <span inert><a href="https://example.com">unrelated.example.com</a></span>
           </p>
           </details>
@@ -102,9 +96,8 @@
             <summary>Keep private documents, account information, and token-bearing links out of public scanning services. Reaching the real service yourself is often safer.</summary>
             <p>Do not upload private coursework, personal documents, account data, or links containing private tokens. VirusTotal's <a href="https://docs.virustotal.com/docs/searching">search documentation</a> explains that submissions and queries contribute to its dataset and warns against submitting sensitive information. If a link came in an unexpected message, the simplest safe choice is usually to ignore it and reach the service independently, even if a scanner does not flag it.</p>
           </details>
-          <!-- popover makes this reminder an initially hidden browser overlay.
-               The button's popovertarget value matches the overlay's id, allowing the button
-               to toggle it; the browser manages dismissal without custom JavaScript. -->
+          <!-- The popover attribute makes the div hidden until it is opened,
+          allowing a temporary message to appear  -->
           <button type="button" popovertarget="download-reminder">Show a quick reminder</button>
           <div id="download-reminder" popover><div class="popover-text">Check the source, file type, and request. Scan if needed, then stop if anything still feels inconsistent.</div></div>
         </section>
