@@ -26,8 +26,7 @@ h1 {
   font-size: 1.2rem;
 }
 
-/* Applies to every h2 heading inside any section.
-   This is the default style for section headings. */
+/* Applies only to h2 headings inside the header. */
 header h2 {
   margin-bottom: 0.6rem;
   padding-bottom: 0.35rem;
