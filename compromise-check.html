@@ -23,21 +23,17 @@
 
     <main role="main">
       <article role="article">
-        <!-- data-topic is a custom data-* attribute that labels the purpose of each section.
-             CSS reads it with section[data-topic="action"] h3 to color action headings blue.
-             JavaScript could read section.dataset.topic or select a section with
-             document.querySelector('[data-topic="processes"]'). A different page might use
-             data-check-status="reviewed" and read element.dataset.checkStatus; this is an
-             example only, not a status-tracking feature here. data-* values are public HTML. -->
+        <!-- data-* attributes store custom information in HTML.
+     They can be used by CSS for styling, JavaScript for behavior,
+     filtering or sorting content, and identifying different types of elements.  -->
         <section data-topic="signs">
           <h3>Start with signs, not a guess</h3>
           <figure class="flow-right">
             <img src="images/check if compromised.png" alt="Infographic showing six possible signs: slow performance, unknown programs, password changes, unusual activity, antivirus warnings, and disabled protection">
             <figcaption>These six signs are reasons to investigate, not a diagnosis by themselves.</figcaption>
           </figure>
-          <!-- Each details element holds one full paragraph. Its first child, summary, gives a
-               short preview; open makes the paragraph visible when the page loads. Selecting
-               the summary collapses or expands it using the browser's built-in behavior. -->
+          <!-- Each details element contains one paragraph. Its summary must come first and gives a
+               one or two sentence preview. Users can select the summary to collapse or expand it  -->
           <details open class="paragraph-detail">
             <summary>Slowdowns, unknown software, account changes, and disabled protection can be warning signs. Consider several clues together.</summary>
             <p>A compromised device or account may behave differently from normal. The image lists six clues: sudden slowdowns, unfamiliar programs or pop-ups, password changes you did not make, unusual account activity, unexpected antivirus warnings, and security software that has been disabled. You might also notice browser redirects, messages you never sent, or a new sign-in alert. The <a href="https://consumer.ftc.gov/articles/malware-how-protect-against-detect-and-remove-it">FTC's malware guide</a> lists similar symptoms and recommends a security scan when they appear.</p>
@@ -56,8 +52,9 @@
           </figure>
           <!-- kbd identifies input a person should type or keys to press. Each key in a
                shortcut has its own kbd element; the plus signs show that keys are held
-               together. acronym gives the full words for CPU through title; it is a
-               legacy assignment element, while abbr is usual in new projects. -->
+               together. -->
+               
+               <!-- acronym gives the full words for CPU through title. -->
           <details open class="paragraph-detail">
             <summary>Windows Task Manager, Mac Activity Monitor, and Linux process tools show resource use. Sort by CPU and compare processes with what you intentionally opened.</summary>
             <p>On <strong>Windows</strong>, press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd> to open Task Manager. In the <strong>Processes</strong> view, select the <acronym title="Central Processing Unit">CPU</acronym> column to sort by usage; you can also inspect memory and disk activity. On a <strong>Mac</strong>, press <kbd>Command</kbd> + <kbd>Space</kbd>, type <kbd>Activity Monitor</kbd>, and press <kbd>Return</kbd>; then open its CPU view. On a <strong>GNOME-based Linux</strong> desktop, press <kbd>Super</kbd>, search for <kbd>System Monitor</kbd>, and inspect the process list. Another Linux option is to open a terminal, type <kbd>top</kbd>, and press <kbd>Return</kbd>. The exact app and launcher can vary by distribution.</p>
@@ -68,8 +65,7 @@
           </details>
           <details open class="paragraph-detail">
             <summary>Watch whether usage drops after closing familiar applications. Record unfamiliar process names and ask for help before ending system services.</summary>
-            <!-- mark highlights the main caution in the paragraph; CSS supplies a yellow
-                 background, and strong adds importance and bold text. -->
+            <!-- mark highlights the main caution in the paragraph -->
             <p>Close programs you recognize and wait a little to see whether the load drops. If an unfamiliar process remains busy, note its exact name and seek help before ending or deleting it. Some unfamiliar names belong to important system services. <strong><mark>High usage is a clue to investigate, not proof of infection.</mark></strong></p>
           </details>
         </section>
@@ -94,6 +90,7 @@
           <h3>What to do if the signs add up</h3>
           <details open class="paragraph-detail">
             <summary>Stop sensitive sign-ins on a possibly affected device and run an updated security scan. Ask campus IT before major changes to a managed school device.</summary>
+            <!-- mark identifies text relevant enough to highlight in context. CSS paints it yellow -->
             <p><strong><mark>Stop using the possibly affected device for sensitive sign-ins</mark></strong> until you have checked it. Update your security software and run a full malware scan. On Windows, open <strong>Windows Security</strong>, choose <strong>Virus &amp; threat protection</strong>, and use <strong>Scan options</strong> for a full scan. Follow the tool's instructions if it finds a threat. If your school manages the device, contact campus IT before making major changes.</p>
           </details>
           <details open class="paragraph-detail">
@@ -103,17 +100,15 @@
           <details open class="paragraph-detail">
             <summary>A cleanup pop-up can be another scam. This sample download link is disabled.</summary>
             <p>Do not trust a pop-up offering an instant “miracle cleaner”:
-            <!-- inert makes this pretend download link non-interactive, removes it from
-                 keyboard focus, and causes assistive technology to ignore it. It stays
-                 visible as an example of a suspicious cleanup offer. -->
+             <!-- inert makes this illustrative link and its descendants non-interactive: it cannot
+                 be clicked -->
             <span inert><a href="https://example.com">download the cleaner now</a></span>.
           </p>
           </details>
-          <!-- popover makes the reminder an initially hidden browser-managed overlay.
-               The button's popovertarget matches the overlay's id to toggle it, and the
-               browser handles closing it without custom JavaScript. -->
+          <!-- The popover attribute makes the div hidden until it is opened,
+          allowing a temporary message to appear  -->
           <button type="button" popovertarget="compromise-reminder">Show a quick reminder</button>
-          <div id="compromise-reminder" popover><div class="popover-text">Check the pattern, scan the device, secure accounts from a trusted device, and ask campus IT for help.</div></div>
+          <div id="compromise-reminder" popover><div class="popover-text">Look for more than one warning sign, run a security scan, and secure any accounts that may be affected.</div></div>
         </section>
 
         <section data-topic="sources" class="sources">
