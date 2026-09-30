@@ -20,32 +20,50 @@
         </ul>
       </nav>
     </header>
+<!-- 
+  3 unique Elements
+  - <summary>  https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/summary
+  - <mark>     https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/mark
+  - <acronym>  https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/acronym
+  3 unique Attributes
+  - popover    https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover
+  - inert      https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inert
+  - data-*     https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/data-*
+-->
+
 
     <main role="main">
       <article role="article">
-        <!-- data-topic is a custom data-* attribute: "topic" is the chosen name after the required data- prefix.
-             Its values label sections for our code; the browser does not give them a built-in behavior.
-             CSS reads the value with section[data-topic="action"] h3 to color action headings blue.
-             JavaScript could read section.dataset.topic or find matching sections with
-             document.querySelectorAll('[data-topic="action"]'). For another use, a site could put
-             data-reading-time="3" on an article and read article.dataset.readingTime in JavaScript.
-             These values are visible in the HTML, so data-* is for page metadata, not private data. -->
+
+
+        <!-- data-* attributes store custom information in HTML.
+     They can be used by CSS for styling, JavaScript for behavior,
+     filtering or sorting content, and identifying different types of elements. 
+       
+      The data-topic attribute stores custom information about this section.
+     Here, it identifies this section as the "introduction" topic.
+     JavaScript or CSS can use this value to find or work with the section. -->
+
         <section data-topic="introduction">
           <h3>Why phishing deserves your attention</h3>
           <figure class="flow-right">
             <img src="images/phishing.png" alt="Illustration of a criminal using a fishing hook to reach personal data on a laptop">
             <figcaption>A phishing message is bait for your information or your next click.</figcaption>
           </figure>
-          <!-- acronym supplies the full words for the initials through title, as in FBI below.
-               This is a legacy HTML element required for the assignment; modern pages usually use abbr. -->
-          <!-- mark identifies text relevant enough to highlight in context. CSS paints it yellow;
-               the surrounding strong element also marks the phrase as important and makes it bold. -->
+      
+        
           <!-- Each details element contains one paragraph. Its summary must come first and gives a
-               one or two sentence preview. The open attribute shows the paragraph initially;
-               readers can select the summary to collapse or expand it without JavaScript. -->
+               one or two sentence preview. Users can select the summary to collapse or expand it  -->
           <details open class="paragraph-detail">
             <summary>Phishing and spoofing were the FBI's most reported cybercrime complaint category in 2025. This counts reports, not the cause of every breach.</summary>
-            <p>Did you know that phishing and spoofing were the <strong><mark>most reported cybercrime category</mark></strong> in the <acronym title="Federal Bureau of Investigation">FBI</acronym>'s 2025 Internet Crime Complaint Center report? The report recorded 191,561 complaints in that category. That is a count of reports, not proof that every breach started with phishing, but it shows why learning to recognize deceptive messages matters. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the FBI report</a>.</p>
+            <p>Did you know that phishing and spoofing were the 
+
+               <!-- mark identifies text relevant enough to highlight in context. CSS paints it yellow -->
+              <strong><mark>most reported cybercrime category</mark></strong> 
+
+              <!-- acronym clearly indicate a sequence of characters that compose an acronym 
+               An altnerative to acronym is <abbr> -->
+              in the <acronym title="Federal Bureau of Investigation">FBI</acronym>'s 2025 Internet Crime Complaint Center report? The report recorded 191,561 complaints in that category. That is a count of reports, not proof that every breach started with phishing, but it shows why learning to recognize deceptive messages matters. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the FBI report</a>.</p>
           </details>
           <details open class="paragraph-detail">
             <summary>Phishing uses a trusted identity and an urgent story to get information or a click. School accounts and payments are common themes.</summary>
@@ -85,6 +103,8 @@
           </details>
         </section>
 
+        <!-- data-topic="action" is unique because 
+         CSS uses it to apply a specific color only to this action section's h3 heading. -->
         <section data-topic="action">
           <h3>How to protect yourself and respond</h3>
           <details open class="paragraph-detail">
@@ -99,17 +119,17 @@
             <summary>This disabled example imitates an urgent campus-login message. It shows how a deadline can pressure someone into clicking.</summary>
             <p class="example-line">Illustrative bait: “Campus access expires today —
             <!-- inert makes this illustrative link and its descendants non-interactive: it cannot
-                 be clicked or focused, and assistive technology ignores the inert content.
-                 The surrounding paragraph still explains that it is a fake example. -->
+                 be clicked -->
             <span inert><a href="https://example.com">verify now</a></span>.”
           </p>
           </details>
-          <!-- popover makes the reminder an initially hidden, browser-controlled overlay.
-               The button's popovertarget matches the reminder's id to open or close it;
-               the browser also handles dismissing the open popover, without our own JavaScript. -->
+          
+          <!-- The button opens the popover whose id is "phishing-reminder".
+          The popover attribute makes the div hidden until it is opened,
+          allowing a temporary message to appear  -->
           <button type="button" popovertarget="phishing-reminder">Show a quick reminder</button>
           <div id="phishing-reminder" popover>
-            <div class="popover-text">Unexpected request? Open the real site yourself, check your account there, and report the message.</div>
+            <div class="popover-text">When a message feels urgent, slow down and check the request before clicking, replying, or sharing information</div>
           </div>
         </section>
 
